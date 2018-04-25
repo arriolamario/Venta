@@ -16,7 +16,12 @@ class OrdenTrabajoController extends Controller
     public function index()
     {
         $orden = new ordenTrabajo();
-        $detalles = array();
+        $orden->saldo = 0;
+        $orden->entrega = 0;
+        $orden->idCliente = -1;
+        $orden->idUsuario = 1;
+        $detalles = [];
+        session(['test' => 'sessionTest']);
         return view('ordentrabajo.index', ['orden' => $orden, 'detalles' => $detalles]);
     }
 
@@ -95,11 +100,11 @@ class OrdenTrabajoController extends Controller
     }
 
 
-    public function AddItem(Request $request){
-        $test = new detalleTrabajo();
-        $test->descripcion = $request->detalle;
-        $test->cantidad = $request->cantidad;
-        $test->precio = $request->precioUnitario;
-        return  $request;
+    public function AddItem(Request $detalles){
+        
+        session()->regenerate();
+        return  session()->all();
     }
+
+    
 }

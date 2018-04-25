@@ -8,7 +8,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {!! Form::open(['url' => 'DetalleItem/AddItem', 'method' => 'post']) !!}
+      
+      {!! Form::open(['action' => ['OrdenTrabajoController@AddItem']]) !!}
         <div class="modal-body">
           <div class ="form-group">
               {!! Form::label('detalle', 'Detalle' ) !!}
@@ -22,7 +23,6 @@
               {!! Form::label('precioUnitario', 'Precio Unitario') !!}    
               {!! Form::text('precioUnitario') !!}
           </div>
-          {{ Form::hidden('invisible', $detalles) }}
           <div class ="form-group">
               {!! Form::submit('Agregar') !!}
           </div>

@@ -16,6 +16,5 @@ Route::resource('OrdenTrabajo', 'OrdenTrabajoController');
 Route::post('DetalleItem/AddItem','OrdenTrabajoController@AddItem');
 
 
-Route::get('/', function () {
-    return view('layouts.principal');
-});
+Route::get('/', 'LoginController@index');
+Route::post('/', 'LoginController@login');
